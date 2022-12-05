@@ -1,15 +1,25 @@
-FROM nginx:1.15.8-alpine
+FROM ubuntu
+
 RUN apt update
 
-RUN apt install git
+RUN apt install git -y
+
+RUN apt install nginx -y
+
+RUN apt install systemctl -y
+
+RUN systemctl start nginx
+
+RUN systemctl enable nginx
+
+WORKDIR /var/www/html
+
+RUN rm -rf index*
 
 RUN git clone https://github.com/cceliuss187/Final-Project.git
 
-WORKDIR /Final-Project
-
-COPY nginx.conf /etc/nginx/nginx.conf
-CMD ./*.css /usr/share/nginx/html/
-COPY ./*.png /usr/share/nginx/html/
-COPY ./*.js /usr/share/nginx/html/
+RUN cp -r /var/www/html/Final-Project/* /var/www/html
 
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
