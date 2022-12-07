@@ -2,7 +2,6 @@ pipeline {
   agent any
    stages {
      stage('Create Container') {
-       agent{label 'docker-agent'}
        steps { 
             dir('Docker') {
                 sh 'sudo docker build -t kodespace .' 
@@ -12,7 +11,6 @@ pipeline {
    }
      
      stage('Push to DockerHub') {
-       agent{label 'docker-agent'}
        steps {        
           sh '''#!/bin/bash
           sudo docker tag kodespace:latest antoniorios17/kodespace:latest
