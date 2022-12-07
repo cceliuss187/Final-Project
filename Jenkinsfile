@@ -1,9 +1,9 @@
 pipeline {
   agent any
    stages {
-     stage('Create Container') {
+     stage('Create Container') {    
        steps { 
-            dir('Docker') {
+            dir('docker') {
                 sh 'sudo docker build -t kodespace .' 
             }
          
@@ -12,10 +12,10 @@ pipeline {
      
      stage('Push to DockerHub') {
        steps {        
-          sh '''#!/bin/bash
-          sudo docker tag kodespace:latest antoniorios17/kodespace:latest
-          sudo docker push antoniorios17/kodespace:latest
-          '''                      
+            sh '''#!/bin/bash
+            sudo docker tag kodespace:latest antoniorios17/kodespace:latest
+            sudo docker push antoniorios17/kodespace:latest
+            '''                      
          
     }
    }
