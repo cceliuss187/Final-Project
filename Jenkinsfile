@@ -3,14 +3,12 @@ pipeline {
    stages {
     stage('Create Container') {
        steps {
-        withCredentials([string(credentialsId: 'AWS_ACCESS_KEY', variable: 'aws_access_key'), 
-                        string(credentialsId: 'AWS_SECRET_KEY', variable: 'aws_secret_key')]) {
-                            dir('docker') {
-                              sh 'sudo docker build -t kodespace .' 
+        dir('docker') {
+          sh 'sudo docker build -t kodespace .' 
                             }
          }
     }
-   }
+   
      
      stage('Push to DockerHub') {
        steps {        
