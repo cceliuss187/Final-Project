@@ -4,7 +4,7 @@ pipeline {
      stage('Create Container') {
        agent{label 'docker-agent'}
        steps { 
-            dir('docker') {
+            dir('Docker') {
                 sh 'sudo docker build -t kodespace .' 
             }
          
