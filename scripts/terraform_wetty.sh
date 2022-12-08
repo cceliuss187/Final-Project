@@ -24,6 +24,8 @@ apt-get install -y nodejs
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg >/dev/null
 echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list
 apt-get update && apt-get install -y yarn
+yarn global add wetty
+
 echo “export PATH=$PATH:/usr/local/bin” | tee -a /etc/profile
 source /etc/profile
 wetty --host 0.0.0.0 -p 3000
