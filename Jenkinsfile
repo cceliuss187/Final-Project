@@ -13,8 +13,8 @@ pipeline {
      stage('Push to DockerHub') {
        steps {        
           sh '''#!/bin/bash
-          sudo docker tag kodespace:latest antoniorios17/kodespace:latest
-          sudo docker push antoniorios17/kodespace:latest
+          sudo docker tag kodespace:latest kodespace01/kodespace:latest
+          sudo docker push kodespace01/kodespace:latest
           '''                      
          
     }
