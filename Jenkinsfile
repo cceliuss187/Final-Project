@@ -5,7 +5,7 @@ pipeline {
        steps {
         dir('docker') {
           sh 'sudo docker build -t kodespace .' 
-                            }
+           }
          }
     }
    
