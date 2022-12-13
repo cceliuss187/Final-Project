@@ -30,7 +30,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
   [
   {
       "name": "KodeSPACE-container",
-      "image": "KodeSPACE01/kodespace01:kodespace",
+      "image": "kodeSPACE01/kodespace-website:latest",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -44,7 +44,75 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
           "containerPort": 5000
         }
       ]
-    }
+    },
+{
+      "name": "KodeSPACETerr-container",
+      "image": "kodespace01/terraform-wetty:latest",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/kodeSPACE-logs",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "containerPort": 3000
+        }
+      ]
+    },
+{
+      "name": "KodeSPACEDock-container",
+      "image": "kodespace01/docker-wetty:latest",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/kodeSPACE-logs",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "containerPort": 4000
+        }
+      ]
+    },
+  {
+      "name": "KodeSPACEJenk-container",
+      "image": "kodespace01/jenkins:latest",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/kodeSPACE-logs",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "containerPort": 8080
+        }
+      ]
+    },
+  {
+      "name": "KodeSPACEMario-container",
+      "image": "kodespace01/mario:latest",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/kodeSPACE-logs",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "containerPort": 7000
+        }
+      ]
+    } 
   ]
   EOF
 
