@@ -45,7 +45,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
         }
       ]
     },
-{
+  {
       "name": "KodeSPACETerr-container",
       "image": "kodespace01/terraform-wetty:latest",
       "logConfiguration": {
@@ -62,7 +62,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
         }
       ]
     },
-{
+  {
       "name": "KodeSPACEDock-container",
       "image": "kodespace01/docker-wetty:latest",
       "logConfiguration": {
