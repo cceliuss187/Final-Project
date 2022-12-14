@@ -1,6 +1,22 @@
 pipeline {
   agent any
    stages {
+     
+    stage ('Build') {
+      steps {
+        sh '''#!/bin/bash
+        python3 -m venv kodespace
+        source kodespace/bin/activate
+        pip install pip --upgrade
+        pip install -r requirements.txt
+        export FLASK_APP=application
+        flask run &
+        '''
+          }
+         }
+    }
+  
+  
     stage('Create Container') {
        steps {
         dir('docker') {
@@ -28,8 +44,8 @@ pipeline {
      stage('Push to DockerHub') {
        steps {        
           sh '''#!/bin/bash
-          sudo docker tag kodespace:latest kodespace01/kodespace:latest
-          sudo docker push kodespace01/kodespace:latest
+          sudo docker tag kodespace:latest kodespace01/kodespace-website:latest
+          sudo docker push kodespace01/kodespace-website:latest
           '''                      
          
     }
