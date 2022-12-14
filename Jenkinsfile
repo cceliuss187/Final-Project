@@ -28,7 +28,7 @@ pipeline {
     stage ('test') {
       steps {
         sh '''#!/bin/bash
-        source test3/bin/activate
+        source kodespace/bin/activate
         py.test --verbose --junit-xml test-reports/results.xml
         ''' 
       }
