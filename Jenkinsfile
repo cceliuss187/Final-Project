@@ -29,7 +29,7 @@ pipeline {
       steps {
         sh '''#!/bin/bash
         source kodespace/bin/activate
-        test_app.py --verbose --junit-xml test-reports/results.xml
+        py.test --verbose --junit-xml test-reports/results.xml
         ''' 
       }
     
