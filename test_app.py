@@ -1,4 +1,4 @@
-from app import app
+from app import app, page_not_found
 
 
 
