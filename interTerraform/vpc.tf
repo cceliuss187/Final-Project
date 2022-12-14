@@ -1,5 +1,8 @@
 resource "aws_vpc" "app_vpc" {
   cidr_block = "172.28.0.0/16"
+  tags = {
+    "Name" = "kodespace-vpc"
+  }
 }
 
 resource "aws_subnet" "public_a" {
