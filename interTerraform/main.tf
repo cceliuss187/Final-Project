@@ -41,8 +41,8 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       },
       "portMappings": [
         {
-          "containerPort": 5000,
-          "hostPort":5000
+          "containerPort": 5000
+         
         }
       ]
     },
@@ -59,8 +59,8 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       },
       "portMappings": [
         {
-          "containerPort": 3000,
-          "hostPort":3000
+          "containerPort": 3000
+         
         }
       ]
     },
@@ -77,8 +77,8 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       },
       "portMappings": [
         {
-          "containerPort": 4000,
-          "hostPort":4000
+          "containerPort": 4000
+          
         }
       ]
     },
@@ -95,8 +95,8 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       },
       "portMappings": [
         {
-          "containerPort": 8080,
-          "hostPort":8080
+          "containerPort": 8080
+          
         }
       ]
     },
@@ -113,8 +113,8 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       },
       "portMappings": [
         {
-          "containerPort": 8080,
-          "hostPort":7000
+          "containerPort": 8080
+          
         }
       ]
     } 
