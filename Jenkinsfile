@@ -17,14 +17,6 @@ pipeline {
     
   
   
-    stage('Create Container') {
-       steps {
-        dir('docker') {
-          sh 'sudo docker build -t kodespace .' 
-           }
-         }
-    }
-     
     stage ('test') {
       steps {
         sh '''#!/bin/bash
@@ -41,6 +33,16 @@ pipeline {
       }
     }
      
+     
+    stage('Create Container') {
+       steps {
+        dir('docker') {
+          sh 'sudo docker build -t kodespace .' 
+           }
+         }
+    }
+     
+   
      stage('Push to DockerHub') {
        steps {        
           sh '''#!/bin/bash
