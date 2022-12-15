@@ -29,7 +29,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
   container_definitions = <<EOF
   [
   {
-      "name": "KodeSPACE-container",
+      "name": "kodeSPACE-container",
       "image": "kodeSPACE01/kodespace-website:latest",
       "logConfiguration": {
         "logDriver": "awslogs",
@@ -47,7 +47,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       ]
     },
   {
-      "name": "KodeSPACETerr-container",
+      "name": "kodeSPACETerr-container",
       "image": "kodespace01/terraform-wetty:latest",
       "logConfiguration": {
         "logDriver": "awslogs",
@@ -137,7 +137,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
   task_definition      = aws_ecs_task_definition.aws-ecs-task.arn
   launch_type          = "FARGATE"
   scheduling_strategy  = "REPLICA"
-  desired_count        = 4
+  desired_count        = 5
   force_new_deployment = true
 
   network_configuration {
@@ -151,7 +151,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.kodeSPACE-app.arn
-    container_name   = "KodeSPACE-container"
+    container_name   = "kodeSPACE-container"
     container_port   = 5000
   }
 
