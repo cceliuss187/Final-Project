@@ -1,19 +1,16 @@
 FROM nginx:latest
+FROM python
 
 RUN apt update
 
-RUN apt upgrade -y
+RUN apt install git
 
-#ADD ./KodeSPACE.tar.gz /app/
+RUN git clone https://github.com/cceliuss187/Final-Project.git
 
-COPY index.html /usr/share/nginx/html
+WORKDIR /Final-Project
 
-COPY contact.html /usr/share/nginx/html
+RUN pip install -r requirements.txt
 
-COPY about.html /usr/share/nginx/html
+EXPOSE 5000
 
-ADD /css /usr/share/nginx/html/css/
-
-COPY /img /usr/share/nginx/html/img/
-
-EXPOSE 80
+ENTRYPOINT FLASK_APP=app flask run --host=0.0.0.0
