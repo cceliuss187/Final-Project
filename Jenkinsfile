@@ -52,6 +52,14 @@ pipeline {
          
     }
    }
+     stage('Staging') {
+       steps {
+        dir('docker') {
+          sh 'docker compose up' 
+           }
+         }
+    }
+     
      stage('Init') {
        steps {
         withCredentials([string(credentialsId: 'AWS_ACCESS_KEY', variable: 'aws_access_key'), 
