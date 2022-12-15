@@ -1,4 +1,3 @@
-FROM nginx:latest
 FROM python
 
 RUN apt update
