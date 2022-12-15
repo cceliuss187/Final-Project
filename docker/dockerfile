@@ -1,25 +1,15 @@
-FROM ubuntu
+FROM python
 
 RUN apt update
 
-RUN apt install git -y
-
-RUN apt install nginx -y
-
-RUN apt install systemctl -y
-
-RUN systemctl start nginx
-
-RUN systemctl enable nginx
-
-WORKDIR /var/www/html
-
-RUN rm -rf index*
+RUN apt install git
 
 RUN git clone https://github.com/cceliuss187/Final-Project.git
 
-RUN cp -r /var/www/html/Final-Project/* /var/www/html
+WORKDIR /Final-Project
 
-EXPOSE 80
+RUN pip install -r requirements.txt
 
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 5000
+
+ENTRYPOINT FLASK_APP=app flask run --host=0.0.0.0
