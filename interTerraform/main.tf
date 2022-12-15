@@ -123,8 +123,8 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
 
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  memory                   = "1024"
-  cpu                      = "512"
+  memory                   = "2048"
+  cpu                      = "1024"
   execution_role_arn       = "arn:aws:iam::928847339565:role/ECS_Full1"
   task_role_arn            = "arn:aws:iam::928847339565:role/ECS_Full1"
 
