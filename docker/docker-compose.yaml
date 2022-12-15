@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  kodespace:
+    build: .
+    image: "kodespace01/kodespace-website:latest"
+    ports:
+      - "5000:5000"
+  jenkins:
+    build: .
+    image: "kodespace01/jenkins:latest"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "kodespace"
+  mario:
+    build: .
+    image: "kodespace01/mario:latest"
+    ports:
+      - "7000:8080"
+    depends_on:
+      - "kodespace"
+  terraform:
+    build: .
+    image: "kodespace01/terraform-wetty:latest"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - "kodespace"
+  docker:
+    build: .
+    image: "kodespace01/docker-wetty:latest"
+    ports:
+      - "4000:4000"
+    depends_on:
+      - "kodespace"
