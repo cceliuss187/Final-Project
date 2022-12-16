@@ -30,7 +30,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
   [
     {
       "name": "kodespace-container",
-      "image": "kodespace01/kodespace-website:latest",
+      "image": "antoniorios17/pythonapp",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
