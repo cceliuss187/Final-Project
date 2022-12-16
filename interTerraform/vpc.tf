@@ -104,8 +104,8 @@ resource "aws_security_group" "http" {
   vpc_id      = aws_vpc.app_vpc.id
 
   ingress {
-    from_port   = 80
-    to_port     = 80
+    from_port   = 0
+    to_port     = 65000
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
