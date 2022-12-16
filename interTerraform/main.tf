@@ -42,7 +42,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "portMappings": [
         {
           "containerPort": 5000
-         
+
         }
       ]
     },
@@ -60,7 +60,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "portMappings": [
         {
           "containerPort": 3000
-         
+
         }
       ]
     },
@@ -78,7 +78,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "portMappings": [
         {
           "containerPort": 4000
-          
+
         }
       ]
     },
@@ -96,7 +96,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "portMappings": [
         {
           "containerPort": 8080
-          
+
         }
       ]
     },
@@ -114,10 +114,10 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "portMappings": [
         {
           "containerPort": 8085
-          
+
         }
       ]
-    } 
+    }
   ]
   EOF
 
@@ -151,8 +151,8 @@ resource "aws_ecs_service" "aws-ecs-service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.kodeSPACE-app.arn
-    container_name   = "KodeSPACEJenk-container"
-    container_port   = 8080
+    container_name   = "kodeSPACE-container"
+    container_port   = 5000
   }
 
 }
