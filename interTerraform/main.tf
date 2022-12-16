@@ -151,8 +151,8 @@ resource "aws_ecs_service" "aws-ecs-service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.kodeSPACE-app.arn
-    container_name   = "kodeSPACE-container"
-    container_port   = 5000
+    container_name   = "KodeSPACEJenk-container"
+    container_port   = 8080
   }
 
 }
