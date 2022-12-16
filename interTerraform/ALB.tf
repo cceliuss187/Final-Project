@@ -1,6 +1,6 @@
 resource "aws_lb_target_group" "kodeSPACE-app" {
   name        = "kodeSPACE-app"
-  port        = 5000
+  port        = 8080
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = aws_vpc.app_vpc.id
