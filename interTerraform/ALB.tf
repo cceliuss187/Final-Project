@@ -68,6 +68,6 @@ resource "aws_lb_target_group" "kodeSPACE-jenkins" {
     }
   }
   
-  output "alb_url" {
+  output "jenkins_url" {
     value = "http://${aws_alb.kodeSPACE_app.dns_name}:8080"
   }
