@@ -56,7 +56,7 @@ resource "aws_lb_target_group" "kodeSPACE-jenkins" {
     enabled = true
     path    = "/health"
   }
-
+}
   resource "aws_alb_listener" "kodeSPACE_jenkins_listener" {
     load_balancer_arn = aws_alb.kodeSPACE_app.arn
     port              = "8080"
