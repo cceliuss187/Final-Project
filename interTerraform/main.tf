@@ -137,7 +137,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
   task_definition      = aws_ecs_task_definition.aws-ecs-task.arn
   launch_type          = "FARGATE"
   scheduling_strategy  = "REPLICA"
-  desired_count        = 5
+  desired_count        = 2
   force_new_deployment = true
 
   network_configuration {

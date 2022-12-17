@@ -105,7 +105,7 @@ resource "aws_security_group" "http" {
 
   ingress {
     from_port   = 80
-    to_port     = 80
+    to_port     = 65000
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -124,8 +124,8 @@ resource "aws_security_group" "ingress_app" {
   vpc_id      = aws_vpc.app_vpc.id
 
   ingress {
-    from_port   = 5000
-    to_port     = 5000
+    from_port   = 0
+    to_port     = 65000
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
